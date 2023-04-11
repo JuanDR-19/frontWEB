@@ -12,7 +12,7 @@ El equipo encargado de este proyecto está conformado por:
 ## Tecnologías utilizadas
 
 - Angular CLI
-    <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Logo de Angular" width="20em">
+    <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Logo de Angular" width="30em">
 - HTML
   <img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" alt="Logo de HTML" width="20em">
 - CSS
