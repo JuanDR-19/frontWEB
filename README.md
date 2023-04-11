@@ -12,11 +12,11 @@ El equipo encargado de este proyecto está conformado por:
 ## Tecnologías utilizadas
 
 - Angular CLI
-  ![Logo de Angular](https://angular.io/assets/images/logos/angular/angular.svg)
+    <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Logo de Angular" width="2em">
 - HTML
-  ![Logo de HTML](https://cdn.worldvectorlogo.com/logos/html-1.svg)
+  <img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" alt="Logo de HTML" width="2em">
 - CSS
-  ![Logo de CSS](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png)
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png" alt="Logo de CSS" width="2em">
 - Otros
 
 
