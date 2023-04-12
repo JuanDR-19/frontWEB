@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 
 const routes: Routes = [
+  {path:'', component: MainMenuComponent},
   {path: 'login', component: LoginComponent}
 ];
 
