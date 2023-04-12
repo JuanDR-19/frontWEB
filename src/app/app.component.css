@@ -76,14 +76,13 @@ h4{
     height: auto;
     object-fit: cover;
 }
-#form_log{
+#formulario{
     position: absolute;
-    top: 20%;
+    top: 8%;
     left: 63%;
 }
 html body {
     background-color: #ab9680;
-    
 }
 a {
     text-decoration:underline rgb(115, 90, 66);
