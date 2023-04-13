@@ -7,8 +7,11 @@ import { LoginComponent } from './login/login.component';
 import { NavmenuComponent } from './navmenu/navmenu.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { PaginationButtonsComponent } from './pagination-buttons/pagination-buttons.component';
+import {HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
-@NgModule({
+
+NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
@@ -18,7 +21,9 @@ import { PaginationButtonsComponent } from './pagination-buttons/pagination-butt
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
