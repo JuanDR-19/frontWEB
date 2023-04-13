@@ -3,7 +3,7 @@
     <h4>Log-in</h4>
 </div>
 <div id="form_log">
-    <form id="formulario">
+    <form id="formulario" [formGroup]="checkOutForm" (ngSubmit)="onsubmit()">
         <label for="inputText" >Usuario</label>
         <input
             type="text"
@@ -11,6 +11,7 @@
             id="inputText"
             placeholder="Enter UserName"
             required="required"
+            formControlName="login"
         />
         <label for="inputPassword" >Contraseña</label>
         <input
@@ -19,6 +20,7 @@
             id="inputPassword"
             placeholder="Password"
             required="required"
+            formControlName="password"
         />
         <div>
         <button type="submit">Log in</button>
