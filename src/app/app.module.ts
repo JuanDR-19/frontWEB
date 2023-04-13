@@ -11,7 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-NgModule({
+@NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
