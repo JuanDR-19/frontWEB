@@ -19,14 +19,15 @@ export class LoginComponent {
 
     let userParam: string;
     let passParam: string;
+    let token: string;
 
     userParam= ''+ this.checkOutForm.value.login;
     passParam=''+this.checkOutForm.value.password;
 
     this.loginService.login(userParam,passParam).subscribe(
-      data=>{
+      (data): void =>{
         console.log(data);
-        this.loginService.setToken(JSON.stringify(data.Token));
+        this.loginService.setToken(data);
         this.router.navigateByUrl('/');
       }
     )
