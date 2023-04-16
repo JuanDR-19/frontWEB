@@ -2,90 +2,20 @@
 <html lang="es">
 <div class="container my-5">
     <div class="row">
-      <div class="col-lg-4 col-md-6 my-3">
-        <div class="card custom-bg">
+      <div class="card-deck">
+        <div class="card" *ngFor="let tool of tools">
           <div class="card-header">
-            <h5 class="card-title">Herramienta 1</h5>
+            <h5 class="card-title">{{tool.name}}</h5>
           </div>
           <div class="card-body">
             <div class="image_container">
-                <img src="https://static.vecteezy.com/system/resources/previews/012/757/781/non_2x/wrench-doodle-cartoon-construction-tool-isolate-on-white-vector.jpg" alt="Imagen de la herramienta 1" class="img-fluid">
+                <img [src]=tool.img alt={{tool.name}} class="img-fluid">
             </div>
-            <p class="card-text">Descripción breve de la herramienta 1.</p>
+            <p class="card-text">{{tool.description}}</p>
             <a href="#" class="btn btn-primary">Ampliar información</a>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 my-3">
-        <div class="card custom-bg">
-          <div class="card-header">
-            <h5 class="card-title">Herramienta 2</h5>
-          </div>
-          <div class="card-body">
-            <div class="image_container">
-                <img src="https://static.vecteezy.com/system/resources/previews/012/757/781/non_2x/wrench-doodle-cartoon-construction-tool-isolate-on-white-vector.jpg" alt="Imagen de la herramienta 1" class="img-fluid">
-            </div>
-            <p class="card-text">Descripción breve de la herramienta 2.</p>
-            <a href="#" class="btn btn-primary">Ampliar información</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-3">
-        <div class="card custom-bg">
-          <div class="card-header">
-            <h5 class="card-title">Herramienta 3</h5>
-          </div>
-          <div class="card-body">
-            <div class="image_container">
-                <img src="https://static.vecteezy.com/system/resources/previews/012/757/781/non_2x/wrench-doodle-cartoon-construction-tool-isolate-on-white-vector.jpg" alt="Imagen de la herramienta 1" class="img-fluid">
-            </div>           
-            <p class="card-text">Descripción breve de la herramienta 3.</p>
-            <a href="#" class="btn btn-primary">Ampliar información</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-3">
-        <div class="card custom-bg">
-          <div class="card-header">
-            <h5 class="card-title">Herramienta 4</h5>
-          </div>
-          <div class="card-body">
-            <div class="image_container">
-                <img src="https://static.vecteezy.com/system/resources/previews/012/757/781/non_2x/wrench-doodle-cartoon-construction-tool-isolate-on-white-vector.jpg" alt="Imagen de la herramienta 1" class="img-fluid">
-            </div>
-            <p class="card-text">Descripción breve de la herramienta 4.</p>
-            <a href="#" class="btn btn-primary">Ampliar información</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-3">
-        <div class="card custom-bg">
-          <div class="card-header">
-            <h5 class="card-title">Herramienta 5</h5>
-          </div>
-          <div class="card-body">
-            <div class="image_container">
-                <img src="https://static.vecteezy.com/system/resources/previews/012/757/781/non_2x/wrench-doodle-cartoon-construction-tool-isolate-on-white-vector.jpg" alt="Imagen de la herramienta 1" class="img-fluid">
-            </div>            
-            <p class="card-text">Descripción breve de la herramienta 5.</p>
-            <a href="#" class="btn btn-primary">Ampliar información</a>
-          </div>
-        </div>
-      </div>
-        <div class="col-lg-4 col-md-6 my-3">
-            <div class="card custom-bg">
-                <div class="card-header">
-                <h5 class="card-title">Herramienta 6</h5>
-                </div>
-                <div class="card-body">
-                    <div class="image_container">
-                        <img src="https://static.vecteezy.com/system/resources/previews/012/757/781/non_2x/wrench-doodle-cartoon-construction-tool-isolate-on-white-vector.jpg" alt="Imagen de la herramienta 1" class="img-fluid">
-                    </div>               
-                <p class="card-text">Descripción breve de la herramienta 6.</p>
-                <a href="#" class="btn btn-primary">Ampliar información</a>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div> 
-    <pagination-buttons></pagination-buttons>
+    </div>
+</div>
+<pagination-buttons></pagination-buttons>
