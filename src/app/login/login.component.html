@@ -1,8 +1,7 @@
-
 <div class="title">
     <h4>Log-in</h4>
 </div>
-<div id="form_log">
+<div *ngIf="!loggedIn" id="form_log">
     <form id="formulario" [formGroup]="checkOutForm" (ngSubmit)="onsubmit()">
         <label for="inputText" >Usuario</label>
         <input
@@ -23,13 +22,14 @@
             formControlName="password"
         />
         <div>
-        <button type="submit">Log in</button>
+            <button type="submit">Log in</button>
         </div>
     </form>
 </div>
+<div *ngIf="loggedIn">
+    <p class="mb-0">Hola {{userName}}!</p>
+</div>
 <hr/>
 <div>
-<p class="mb-0">¿no tienes una cuenta? <a href="#" id="register">¡Registrate ya!</a></p>
+    <p class="mb-0">¿no tienes una cuenta? <a href="#" id="register">¡Registrate ya!</a></p>
 </div>
-
-
