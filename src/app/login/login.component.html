@@ -21,6 +21,9 @@
             required="required"
             formControlName="password"
         />
+        <div *ngIf="failed">
+            <p> Usuario y/o contraseña incorrectos</p>
+        </div>
         <div>
             <button type="submit">Log in</button>
         </div>

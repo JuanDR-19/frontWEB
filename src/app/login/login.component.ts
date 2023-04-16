@@ -14,6 +14,7 @@ export class LoginComponent {
 
   loggedIn = false; // nueva variable para controlar el estado de inicio de sesión
   userName = ''; // nueva variable para almacenar el nombre del usuario
+  failed = false;
 
   checkOutForm = this.formbuilder.group({
     login:'',
@@ -31,6 +32,7 @@ export class LoginComponent {
       (data) :void => {
         if (data.token == "error"){
           alert("Usuario o contraseña incorrecta");
+          this.failed = true;
         } else {
           this.loginService.setToken(data.token);
           this.loggedIn = true; // establece el estado de inicio de sesión en verdadero
