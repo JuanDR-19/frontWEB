@@ -19,16 +19,21 @@ export class LoginComponent {
 
     let userParam: string;
     let passParam: string;
-    let token: string;
 
     userParam= ''+ this.checkOutForm.value.login;
     passParam=''+this.checkOutForm.value.password;
 
     this.loginService.login(userParam,passParam).subscribe(
-      (data): void =>{
-        console.log(data);
-        this.loginService.setToken(data);
-        this.router.navigateByUrl('/');
+      (data) :void=>{
+        if (data.token == "error"){
+          this.checkOutForm.value.login='';
+          this.checkOutForm.value.password=''
+          console.log("Usuario o constrasena incorrecta");
+        }else{
+          this.loginService.setToken(data.token);
+          this.router.navigateByUrl('/');
+        }
+
       }
     )
 
