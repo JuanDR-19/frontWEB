@@ -9,38 +9,56 @@ import { LoginService } from "../login.service";
   styleUrls: ['../app.component.css']
 })
 export class LoginComponent {
-  constructor(private formbuilder: FormBuilder, private router: Router, private loginService: LoginService) {
-  }
 
-  loggedIn = false; // nueva variable para controlar el estado de inicio de sesión
-  userName = ''; // nueva variable para almacenar el nombre del usuario
+  // variable para controlar el estado de inicio de sesión
+  loggedIn = false;
+
+  // variable para almacenar el nombre del usuario
+  userName = '';
+
+  // variable para controlar si el inicio de sesión falla
   failed = false;
 
+  // formulario de inicio de sesión construido con FormBuilder
   checkOutForm = this.formbuilder.group({
     login:'',
     password:''
   })
 
+  constructor(private formbuilder: FormBuilder, private router: Router, private loginService: LoginService) {}
+
+  /**
+   * Envía una solicitud de inicio de sesión al servidor utilizando los valores
+   * del formulario de inicio de sesión. Si el inicio de sesión es exitoso, se
+   * guarda el token devuelto por el servidor y se establece el estado de inicio
+   * de sesión en verdadero. Si el inicio de sesión falla, se muestra una alerta
+   * con el mensaje "Usuario o contraseña incorrecta" y el estado de inicio de
+   * sesión no se establece en verdadero.
+   */
   onsubmit(): void {
+    // Obtiene los valores del formulario de inicio de sesión
     let userParam: string;
     let passParam: string;
-
     userParam= ''+ this.checkOutForm.value.login;
     passParam=''+this.checkOutForm.value.password;
 
-    this.loginService.login(userParam,passParam).subscribe(
+    // Envía una solicitud de inicio de sesión al servidor
+    this.loginService.login(userParam, passParam).subscribe(
       (data) :void => {
+        // Si el inicio de sesión es exitoso, guarda el token devuelto por el servidor
+        // y establece el estado de inicio de sesión en verdadero
         if (data.token == "error"){
           alert("Usuario o contraseña incorrecta");
           this.failed = true;
         } else {
           this.loginService.setToken(data.token);
-          this.loggedIn = true; // establece el estado de inicio de sesión en verdadero
-          this.userName = userParam; // guarda el nombre de usuario en la variable userName
+          this.loggedIn = true;
+          this.userName = userParam;
         }
       }
     )
 
+    // Reinicia el formulario de inicio de sesión
     this.checkOutForm.reset();
   }
 }
