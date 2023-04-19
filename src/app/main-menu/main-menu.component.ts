@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, SimpleChanges} from '@angular/core';
 import { ToolService } from '../tool.service';
 
 interface Tool {
   name: string;
   img: string;
   description: string;
+  price: any;
 }
 
 @Component({
@@ -19,9 +20,16 @@ export class MainMenuComponent {
 
   ngOnInit(): void {
     this.toolservice.getTools().subscribe(
+      (data:Tool[])=>{
+        this.tools=data;
+    }
+    )
+    this.toolservice.tools$.subscribe(
       (data:Tool[]) => {
         this.tools=data;
       }
     );
   }
+
+
 }

@@ -3,15 +3,16 @@
 <div class="container my-5">
     <div class="row">
       <div class="card-deck">
-        <div class="card" *ngFor="let tool of tools">
+        <div class="cart-item" *ngFor="let tool of tools">
           <div class="card-header">
             <h5 class="card-title">{{tool.name}}</h5>
           </div>
           <div class="card-body">
-            <div class="image_container">
-                <img [src]=tool.img alt={{tool.name}} class="img-fluid">
+            <div class="image_container" >
+                <img [src]=tool.img alt={{tool.name}}>
             </div>
             <p class="card-text">{{tool.description}}</p>
+            <p class="card-text">{{tool.price|currency}}</p>
             <a href="#" class="btn btn-primary">Ampliar información</a>
           </div>
         </div>

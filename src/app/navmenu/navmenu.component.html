@@ -19,9 +19,9 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 ml-auto">
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar herramienta" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search_button_brand">Buscar por marca</button>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search_button_main">Buscar por nombre</button>
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar herramienta" aria-label="Search" [(ngModel)]="word" name="word">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search_button_brand" (click)="SearchBrand()">Buscar por marca</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search_button_main" (click)="SearchName()">Buscar por nombre</button>
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="log_button_main" routerLink="login" >Log-in</button>
       </form>
     </div>

@@ -8,7 +8,7 @@ import { NavmenuComponent } from './navmenu/navmenu.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { PaginationButtonsComponent } from './pagination-buttons/pagination-buttons.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -19,12 +19,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     MainMenuComponent,
     PaginationButtonsComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
