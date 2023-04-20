@@ -14,27 +14,35 @@ interface Tool {
   templateUrl: './main-menu.component.html',
   styleUrls: ['../app.component.css']
 })
+
+/**
+ * @description Componente encargado de mostrar el menu con todas las herramientas
+ * @class MainMenuComponent
+ * @constructor
+ * @param {ToolService} toolservice -servicio de angular para realizar peticiones HTTP al microServicio ToolsWeb y ToolsSearch
+ */
 export class MainMenuComponent {
 
-  // Inyecta el servicio ToolService en el constructor del componente
   constructor(private toolservice: ToolService) {}
 
-  // Lista de herramientas que se mostrarán en la página
   tools: Tool[] = [];
 
-  // Método que se ejecuta al inicializar el componente
+  /**
+
+   Inicializa el componente obteniendo la lista de herramientas del servicio ToolService
+   utilizando el método getTools() y suscribiéndose al resultado para actualizar la variable "tools"
+   cuando la lista cambie. También se suscribe al observable "tools$" del servicio ToolService
+   para actualizar la variable "tools" cuando la lista de herramientas cambie en el servicio.
+   @returns void
+   */
   ngOnInit(): void {
 
-    // Obtiene la lista de herramientas del servicio ToolService utilizando el método getTools()
-    // y se suscribe al resultado para actualizar la variable "tools" cuando la lista cambie
     this.toolservice.getTools().subscribe(
       (data: Tool[]) => {
         this.tools = data;
       }
     )
 
-    // Se suscribe al observable "tools$" del servicio ToolService para actualizar la variable "tools"
-    // cuando la lista de herramientas cambie en el servicio
     this.toolservice.tools$.subscribe(
       (data: Tool[]) => {
         this.tools = data;

@@ -3,7 +3,7 @@ import { CookieService } from "ngx-cookie-service";
 import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 
-// define una interfaz para la herramienta
+
 interface Tool {
   name: string;
   img: string;
@@ -14,31 +14,59 @@ interface Tool {
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+
+ @description Servicio encargado de realizar las consultas de las herramientas ya sea con filtro de marca, nombre o sin filtro
+ @class ToolService
+ @constructor
+ @param {HttpClient} http - servicio Angular que se encarga de realizar las peticiones htttp a los microservicios
+ */
 export class ToolService {
 
-  // crea un BehaviorSubject que emite un arreglo de herramientas
   private toolsSubject = new BehaviorSubject<Tool[]>([]);
-  // expone el BehaviorSubject como un observable para que los componentes puedan suscribirse a él
   tools$ = this.toolsSubject.asObservable();
 
-  // método que actualiza el BehaviorSubject con nuevas herramientas
+  constructor(private http: HttpClient) { }
+
+  /**
+
+   @description Método encargado de actualizar la lista de herramientas que presenta el main-menu.
+   @method updateTools
+   @param {Tool[]} newTools - Contiene las herramientas a mostrar.
+   */
   updateTools(newTools: Tool[]) {
     this.toolsSubject.next(newTools);
   }
 
-  constructor(private http: HttpClient, private cookies: CookieService) { }
+  /**
 
-  // método que obtiene todas las herramientas del servidor
+   @description Método encargado de devolver las herramientas
+   @method getTools
+   @returns {Observable<Tool[]>} - Observable que emite la respuesta de la petición HTTP realizada.
+   */
   getTools(): Observable<Tool[]> {
     return this.http.get<Tool[]>("http://localhost:8081/get_tools");
   }
 
-  // método que busca herramientas por nombre de marca en el servidor
+  /**
+
+   @description Método encargado de buscar las herramientas que pertenezcan a una marca en especifico
+   @method searchBrand
+   @param {string} name - representa el nombre de la marca que se desea buscar
+   @returns {Observable<Tool[]>} - Observable que emite la respuesta de la petición HTTP realizada.
+   */
   searchBrand(name: string): Observable<Tool[]> {
     return this.http.get<Tool[]>(`http://localhost:8082/get_tool_brand/${name}`);
   }
 
-  // método que busca herramientas por nombre en el servidor
+  /**
+
+   @description Método encargado de buscar las herramientas que tengan un nombre dado.
+   @method searchName
+   @param {string} brand_name -representa el nombre de la herramienta a buscar.
+   @returns {Observable<Tool[]>} - Observable que emite la respuesta de la petición HTTP realizada.
+   */
   searchName(brand_name: string): Observable<Tool[]> {
     return this.http.get<Tool[]>(`http://localhost:8082/get_tool_name/${brand_name}`);
   }

@@ -8,6 +8,16 @@ import { LoginService } from "../login.service";
   templateUrl: './login.component.html',
   styleUrls: ['../app.component.css']
 })
+
+/**
+
+ @description Componente que muestra la pagina de inicio de sesion
+ @class LoginComponent
+ @constructor
+ @param {FormBuilder} formbuilder - Clase de formularios proporcionada por angular
+ @param {Router} router - Clase de angular para el manejo de rutas dentro de la aplicacion
+ @param {LoginService} loginService - Servicio encargado de hacer las peticiones al microservicio de autorizacion
+ */
 export class LoginComponent {
 
   // variable para controlar el estado de inicio de sesión
@@ -28,7 +38,7 @@ export class LoginComponent {
   constructor(private formbuilder: FormBuilder, private router: Router, private loginService: LoginService) {}
 
   /**
-   * Envía una solicitud de inicio de sesión al servidor utilizando los valores
+   * @description Envía una solicitud de inicio de sesión al servidor utilizando los valores
    * del formulario de inicio de sesión. Si el inicio de sesión es exitoso, se
    * guarda el token devuelto por el servidor y se establece el estado de inicio
    * de sesión en verdadero. Si el inicio de sesión falla, se muestra una alerta
