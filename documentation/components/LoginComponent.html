@@ -177,7 +177,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/login/login.component.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/login/login.component.ts:45</a></div>
                             </td>
                         </tr>
 
@@ -268,8 +268,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/login/login.component.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/login/login.component.ts:57</a></div>
                 </td>
             </tr>
 
@@ -318,10 +318,16 @@ sesión no se establece en verdadero.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/login/login.component.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/login/login.component.ts:42</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>formulario de inicio de sesion construido con FormBuilder</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -343,10 +349,16 @@ sesión no se establece en verdadero.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/login/login.component.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/login/login.component.ts:36</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable para controlar si el inicio de sesión falla</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -368,10 +380,16 @@ sesión no se establece en verdadero.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/login/login.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/login/login.component.ts:26</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable para controlar el estado de inicio de sesion</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -399,10 +417,16 @@ sesión no se establece en verdadero.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/login/login.component.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/login/login.component.ts:31</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable que almacena el nombre de usuario</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -434,16 +458,25 @@ import { LoginService } from &quot;../login.service&quot;;
  */
 export class LoginComponent {
 
-  // variable para controlar el estado de inicio de sesión
+  /**
+   * variable para controlar el estado de inicio de sesion
+   */
   loggedIn &#x3D; false;
 
-  // variable para almacenar el nombre del usuario
+  /**
+   * variable que almacena el nombre de usuario
+   */
   userName &#x3D; &#x27;&#x27;;
 
-  // variable para controlar si el inicio de sesión falla
+  /**
+   * variable para controlar si el inicio de sesión falla
+   */
   failed &#x3D; false;
 
-  // formulario de inicio de sesión construido con FormBuilder
+  /**
+   * formulario de inicio de sesion construido con FormBuilder
+   * @type {FormBuilder}
+   */
   checkOutForm &#x3D; this.formbuilder.group({
     login:&#x27;&#x27;,
     password:&#x27;&#x27;

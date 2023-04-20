@@ -7,18 +7,27 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.css']
 })
 
+/**
+ * clase del componente inicial de la aplicacion
+ * @implements OnInit
+ * @class AppComponent
+ * @param {Router} router - clase de angular para manejar la ruta entre pantallas de la aplicacion
+ */
 
 export class AppComponent implements OnInit {
 
-  // Variable para el título del componente
+  /**
+   * Variable que imprime el nombre del usuario cuando se autentique
+   */
   title = 'Inicio';
 
-  // Inyecta el servicio Router en el constructor del componente
   constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  // Método que se ejecuta al hacer clic en el botón de inicio de sesión
+  /**
+   * metodo para cambiar de componente y mostrar el componente para iniciar sesion
+   */
   logging() {
 
     // Navega a la ruta "/login" utilizando el método "navigate()" del servicio Router

@@ -19,7 +19,10 @@ export class NavmenuComponent {
 
   constructor(private toolservice: ToolService) {}
 
-  // Variable que contiene la palabra a buscar
+  /**
+   * nombre de marca o nombre de herramienta a buscar
+   * @type {String} word
+   */
   word="";
 
   /**

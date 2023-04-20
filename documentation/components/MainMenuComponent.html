@@ -235,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/app/main-menu/main-menu.component.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/main-menu/main-menu.component.ts:42</a></div>
                 </td>
             </tr>
 
@@ -293,10 +293,16 @@ para actualizar la variable &quot;tools&quot; cuando la lista de herramientas ca
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/main-menu/main-menu.component.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/main-menu/main-menu.component.ts:32</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>lista de herramientas a mostrar en la pagina principal</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -333,6 +339,10 @@ export class MainMenuComponent {
 
   constructor(private toolservice: ToolService) {}
 
+  /**
+   * lista de herramientas a mostrar en la pagina principal
+   * @type {Tool[]}
+   */
   tools: Tool[] &#x3D; [];
 
   /**

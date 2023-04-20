@@ -20,16 +20,25 @@ import { LoginService } from "../login.service";
  */
 export class LoginComponent {
 
-  // variable para controlar el estado de inicio de sesión
+  /**
+   * variable para controlar el estado de inicio de sesion
+   */
   loggedIn = false;
 
-  // variable para almacenar el nombre del usuario
+  /**
+   * variable que almacena el nombre de usuario
+   */
   userName = '';
 
-  // variable para controlar si el inicio de sesión falla
+  /**
+   * variable para controlar si el inicio de sesión falla
+   */
   failed = false;
 
-  // formulario de inicio de sesión construido con FormBuilder
+  /**
+   * formulario de inicio de sesion construido con FormBuilder
+   * @type {FormBuilder}
+   */
   checkOutForm = this.formbuilder.group({
     login:'',
     password:''

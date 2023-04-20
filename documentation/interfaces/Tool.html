@@ -281,6 +281,11 @@ interface Tool {
  */
 export class ToolService {
 
+  /**
+   * variable compartida de lista de herramientas que genera un observable para que otras clases puedan modificarla y/o verla
+   * @type {BehaviorSubject}
+   * @private
+   */
   private toolsSubject &#x3D; new BehaviorSubject&lt;Tool[]&gt;([]);
   tools$ &#x3D; this.toolsSubject.asObservable();
 
