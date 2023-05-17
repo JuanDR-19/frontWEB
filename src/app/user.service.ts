@@ -40,5 +40,12 @@ export class UserService {
    getUsers(): Observable<User[]> {
     return this.http.get<User[]>("http://localhost:8083/get_users");
   }
+  /**
+   @description Método encargado de eliminar usuarios con el ID especificado
+   @method deleteUser
+   */
+   deleteUser(identifier: number): void {
+    this.http.delete(`http://localhost:8083/deleteUser/${identifier}`);
+  }  
 }
 export { User };
