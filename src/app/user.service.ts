@@ -4,12 +4,14 @@ import { HttpClient } from "@angular/common/http";
 
 
 interface User {
-  name: string;
-  last_name: string;
+  user_id : number;
+  name_user: string;
+  city_id : number;
+  last_name_user: string;
   username: string;
   password: string;
   token: string;
-  birthday: string;
+  birthdate_user: string;
 }
 
 @Injectable({
@@ -46,6 +48,6 @@ export class UserService {
    */
    deleteUser(identifier: number): void {
     this.http.delete(`http://localhost:8083/deleteUser/${identifier}`);
-  }  
+  }
 }
 export { User };

@@ -16,7 +16,7 @@ export class UsersControlComponent {
   constructor(private userservice: UserService) {}
 
   /**
-   * lista de usuarios a mostrar en la pagina 
+   * lista de usuarios a mostrar en la pagina
    * @type {User[]}
    */
   user: User[] = [];
@@ -34,6 +34,7 @@ export class UsersControlComponent {
     this.userservice.getUsers().subscribe(
       (data: User[]) => {
         this.user = data;
+        console.log(data);
       }
     )
 
