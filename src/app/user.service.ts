@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
-
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { CookieService } from "ngx-cookie-service";
 
 interface User {
   user_id : number;
@@ -32,7 +32,7 @@ export class UserService {
    */
   private userSubject = new BehaviorSubject<User[]>([]);
   users$ = this.userSubject.asObservable();
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookies: CookieService) { }
   /**
 
    @description Método encargado de devolver TODOS los usuarios
@@ -40,7 +40,9 @@ export class UserService {
    @returns {Observable<User[]>} - Observable que emite la respuesta de la petición HTTP realizada.
    */
    getUsers(): Observable<User[]> {
-    return this.http.get<User[]>("http://localhost:8083/get_users");
+     const token=this.cookies.get('token')
+     const headers =new HttpHeaders().set('Authorization',token);
+    return this.http.get<User[]>("http://localhost:8083/get_users",{headers});
   }
   /**
    @description Método encargado de eliminar usuarios con el ID especificado
