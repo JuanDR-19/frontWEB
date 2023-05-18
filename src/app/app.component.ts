@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
    * Variable que imprime el nombre del usuario cuando se autentique
    */
   title = 'Inicio';
+  athenticated=0;
 
   constructor(private router: Router) {}
 

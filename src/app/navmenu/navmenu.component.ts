@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ToolService } from "../tool.service";
+import { CookieService } from "ngx-cookie-service";
+
 
 @Component({
   selector: 'navmenu',
@@ -17,13 +19,22 @@ import { ToolService } from "../tool.service";
 export class NavmenuComponent {
 
 
-  constructor(private toolservice: ToolService) {}
+  constructor(private toolservice: ToolService,private cookies:CookieService) {}
 
   /**
    * nombre de marca o nombre de herramienta a buscar
    * @type {String} word
    */
   word="";
+  Authenticated = 0;
+
+  ngOnInit(){
+
+    if(this.cookies.get('token')!="") {
+      this.Authenticated = 1
+      console.log(this.cookies.get('token'))
+    }
+  }
 
   /**
 
