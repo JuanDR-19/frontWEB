@@ -10,6 +10,7 @@ import { PaginationButtonsComponent } from './pagination-buttons/pagination-butt
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsersControlComponent } from './users-control/users-control.component';
+import { ToolControlComponent } from './tool-control/tool-control.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { UsersControlComponent } from './users-control/users-control.component';
     NavmenuComponent,
     MainMenuComponent,
     PaginationButtonsComponent,
-    UsersControlComponent
+    UsersControlComponent,
+    ToolControlComponent
   ],
     imports: [
         BrowserModule,

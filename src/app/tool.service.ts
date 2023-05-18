@@ -75,3 +75,4 @@ export class ToolService {
     return this.http.get<Tool[]>(`http://localhost:8082/get_tool_name/${brand_name}`);
   }
 }
+export { Tool };
