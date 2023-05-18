@@ -8,7 +8,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light custom-bg">
-    <a class="navbar-brand" href="#">Herramientas Web</a>
+    <a class="navbar-brand" href="/">Herramientas Web</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,9 +22,10 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Buscar herramienta" aria-label="Search" [(ngModel)]="word" name="word">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search_button_brand" (click)="SearchBrand()">Buscar por marca</button>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search_button_main" (click)="SearchName()">Buscar por nombre</button>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="login_button_main" (click)="logOut()" *ngIf="Authenticated==1" >Log-out</button>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="logout_button_main" routerLink="login" *ngIf="Authenticated==0" >Log-in</button>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="log_users_main" routerLink="users-managment" *ngIf="Authenticated==1">Usuarios</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="login_button_main" (click)="logOut()" routerLink="/login" *ngIf="Authenticated==1" >Log-out</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="logout_button_main" routerLink="/login" *ngIf="Authenticated==0" >Log-in</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="log_users_main" routerLink="/users-control" *ngIf="Authenticated==1">Usuarios</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="log_tool_control" routerLink="/tool-control" *ngIf="Authenticated==1">Herramientas</button>
       </form>
     </div>
   </nav>

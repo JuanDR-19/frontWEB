@@ -34,7 +34,6 @@ export class UsersControlComponent {
     this.userservice.getUsers().subscribe(
       (data: User[]) => {
         this.user = data;
-        console.log(data);
       }
     )
 

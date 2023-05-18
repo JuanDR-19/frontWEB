@@ -4,11 +4,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { UsersControlComponent } from './users-control/users-control.component';
+import {ToolControlComponent} from "./tool-control/tool-control.component";
 
 const routes: Routes = [
   {path:'', component: MainMenuComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'users-managment', component: UsersControlComponent}
+  {path: 'users-control', component: UsersControlComponent},
+  {path: 'tool-control', component: ToolControlComponent}
 ];
 
 @NgModule({

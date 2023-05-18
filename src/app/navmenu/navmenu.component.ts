@@ -72,7 +72,6 @@ export class NavmenuComponent {
   private checkAuthentication() {
     if (this.cookies.get('token') !== '') {
       this.Authenticated = 1;
-      console.log(this.cookies.get('token'));
     }
   }
 
