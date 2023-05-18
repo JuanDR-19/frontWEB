@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ToolService } from "../tool.service";
-import { CookieService } from "ngx-cookie-service";
+import { CookieService  } from "ngx-cookie-service";
 
 
 @Component({
@@ -18,7 +18,6 @@ import { CookieService } from "ngx-cookie-service";
  */
 export class NavmenuComponent {
 
-
   constructor(private toolservice: ToolService,private cookies:CookieService) {}
 
   /**
@@ -29,11 +28,11 @@ export class NavmenuComponent {
   Authenticated = 0;
 
   ngOnInit(){
+    this.checkAuthentication();
+  }
 
-    if(this.cookies.get('token')!="") {
-      this.Authenticated = 1
-      console.log(this.cookies.get('token'))
-    }
+  ngOnChanges(){
+    this.checkAuthentication();
   }
 
   /**
@@ -63,4 +62,18 @@ export class NavmenuComponent {
       }
     )
   }
+
+  logOut(){
+    this.cookies.delete('token');
+    this.cookies.delete("user");
+    self.location.reload();
+  }
+
+  private checkAuthentication() {
+    if (this.cookies.get('token') !== '') {
+      this.Authenticated = 1;
+      console.log(this.cookies.get('token'));
+    }
+  }
+
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
 import { LoginService } from "../login.service";
+import { CookieService  } from "ngx-cookie-service";
 
 @Component({
   selector: 'login',
@@ -44,8 +45,16 @@ export class LoginComponent {
     password:''
   })
 
-  constructor(private formbuilder: FormBuilder, private router: Router, private loginService: LoginService) {}
+  authenticated = 0;
 
+  constructor(private formbuilder: FormBuilder, private router: Router, private loginService: LoginService,private cookies:CookieService) {}
+
+  ngOnInit(){
+    if(this.cookies.get('token')!=""){
+      this.authenticated=1;
+      this.userName=this.cookies.get('user');
+    }
+  }
   /**
    * @description Envía una solicitud de inicio de sesión al servidor utilizando los valores
    * del formulario de inicio de sesión. Si el inicio de sesión es exitoso, se
@@ -73,6 +82,8 @@ export class LoginComponent {
           this.loginService.setToken(data.token);
           this.loggedIn = true;
           this.userName = userParam;
+          this.cookies.set('user',this.userName);
+          self.location.reload();
         }
       }
     )

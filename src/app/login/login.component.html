@@ -1,7 +1,8 @@
+<navmenu></navmenu>
 <div class="title">
     <h4>Log-in</h4>
 </div>
-<div *ngIf="!loggedIn" id="form_log">
+<div *ngIf="authenticated==0" id="form_log">
     <form id="formulario" [formGroup]="checkOutForm" (ngSubmit)="onsubmit()">
         <label for="inputText" >Usuario</label>
         <input
@@ -25,11 +26,11 @@
             <p> Usuario y/o contraseña incorrectos</p>
         </div>
         <div>
-            <button type="submit">Log in</button>
+            <button type="submit" >Log in</button>
         </div>
     </form>
 </div>
-<div *ngIf="loggedIn">
+<div *ngIf="authenticated==1">
     <p class="mb-0">Hola {{userName}}!</p>
 </div>
 <hr/>
