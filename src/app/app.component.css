@@ -19,8 +19,12 @@ h4{
     color: rgb(115, 90, 66);
     border-color: white;
 }
-
-#search_button_brand{
+#brand_selec{
+    background-color: rgb(115, 90, 66);
+    border: black;
+    color: white;
+}
+#name_selec{
     background-color: rgb(115, 90, 66);
     border: black;
     color: white;
@@ -55,11 +59,11 @@ h4{
     border-color: rgb(115, 90, 66);
     color: white;
 }
-#search_button_brand:hover{
-    background-color:rgb(115, 90, 66) ;
-    border-color: rgb(115, 90, 66);
-    color: white;
-}
+#brand_selec.active {
+    background-color: rgb(115, 90, 66) !important;
+    border-color: rgb(115, 90, 66) !important;
+    color: white !important;
+  }  
 #logout_button_main:hover{
     background-color:rgb(115, 90, 66) ;
     border-color: rgb(115, 90, 66);

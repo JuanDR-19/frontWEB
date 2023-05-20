@@ -19,9 +19,14 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 ml-auto">
+        <div class="span2">
+          <div class="btn-group pull-right" data-toggle="buttons-radio">
+              <button class="btn active" [(ngModel)]="searchType" name="name" id="name_selec">Nombre</button>
+              <button class="btn" [(ngModel)]="searchType" name="brand" id="brand_selec">Marca</button>
+          </div>
+        </div>
         <input class="form-control mr-sm-2" type="search" placeholder="Buscar herramienta" aria-label="Search" [(ngModel)]="word" name="word">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search_button_brand" (click)="SearchBrand()">Buscar por marca</button>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search_button_main" (click)="SearchName()">Buscar por nombre</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="search_button_main" (click)="search()" >Buscar</button>
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="logout_button_main" (click)="logOut()" routerLink="/login" *ngIf="Authenticated==1" >Log-out</button>
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="login_button_main" routerLink="/login" *ngIf="Authenticated==0" >Log-in</button>
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="log_users_main" routerLink="/users-control" *ngIf="Authenticated==1">Usuarios</button>
