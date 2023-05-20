@@ -19,11 +19,13 @@ h4{
     color: rgb(115, 90, 66);
     border-color: white;
 }
-#brand_selec{
+#brand_selec {
     background-color: rgb(115, 90, 66);
     border: black;
     color: white;
-}
+    margin-top: -18px; 
+  }
+  
 #name_selec{
     background-color: rgb(115, 90, 66);
     border: black;

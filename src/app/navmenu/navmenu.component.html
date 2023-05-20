@@ -20,10 +20,14 @@
       </ul>
       <form class="form-inline my-2 my-lg-0 ml-auto">
         <div class="span2">
-          <div class="btn-group pull-right" data-toggle="buttons-radio">
-              <button class="btn active" [(ngModel)]="searchType" name="name" id="name_selec">Nombre</button>
-              <button class="btn" [(ngModel)]="searchType" name="brand" id="brand_selec">Marca</button>
-          </div>
+          <div class="col-md-2 pt-3">
+            <div class="form-group ">
+               <select id="inputState " class="form-control" id="brand_selec">
+                 <option selected [(ngModel)]="searchType" name="name">Nombre</option>
+                 <option [(ngModel)]="searchType" name="brand">Marca</option>
+               </select>
+            </div>
+         </div>
         </div>
         <input class="form-control mr-sm-2" type="search" placeholder="Buscar herramienta" aria-label="Search" [(ngModel)]="word" name="word">
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="search_button_main" (click)="search()" >Buscar</button>
