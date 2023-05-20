@@ -1,48 +1,69 @@
 import { Component } from '@angular/core';
 import { ToolService } from "../tool.service";
-import { CookieService } from "ngx-cookie-service";
+import { CookieService  } from "ngx-cookie-service";
+
 
 @Component({
   selector: 'navmenu',
   templateUrl: './navmenu.component.html',
   styleUrls: ['../app.component.css']
 })
-export class NavmenuComponent {
-  constructor(private toolservice: ToolService, private cookies: CookieService) {}
 
-  word = "";
-  searchType = "brand";
+/**
+
+ @description Compononete que contiene el header de navegacion.
+ @class NavmenuComponent
+ @constructor
+ @param {ToolService} toolservice -Servicio que se encarga de realizar las peticiones http a microservicio necesario
+ */
+export class NavmenuComponent {
+
+  constructor(private toolservice: ToolService,private cookies:CookieService) {}
+
+  /**
+   * nombre de marca o nombre de herramienta a buscar
+   * @type {String} word
+   */
+  word="";
   Authenticated = 0;
 
-  ngOnInit() {
+  ngOnInit(){
     this.checkAuthentication();
   }
 
-  ngOnChanges() {
+  ngOnChanges(){
     this.checkAuthentication();
   }
 
-  Search() {
-    if (this.searchType === "brand") {
-      this.searchBrand();
-    } else if (this.searchType === "name") {
-      this.searchName();
-    }
+  /**
+
+   @description Método encargado de llamar al servicio para buscar herramientas por marca
+   @method SearchBrand
+   */
+  SearchBrand() {
+
+    this.toolservice.searchBrand(this.word).subscribe(
+      (data) => {
+        this.toolservice.updateTools(data);
+      }
+    )
   }
 
-  searchBrand() {
-    this.toolservice.searchBrand(this.word).subscribe((data) => {
-      this.toolservice.updateTools(data);
-    });
+  /**
+
+   @description Método que se ejecuta al hacer clic en el botón "Buscar por nombre" para llamar al servicio que busca las herramientas por nombre
+   @method SearchName
+   */
+  SearchName() {
+
+    this.toolservice.searchName(this.word).subscribe(
+      (data) => {
+        this.toolservice.updateTools(data);
+      }
+    )
   }
 
-  searchName() {
-    this.toolservice.searchName(this.word).subscribe((data) => {
-      this.toolservice.updateTools(data);
-    });
-  }
-
-  logOut() {
+  logOut(){
     this.cookies.delete('token');
     this.cookies.delete("user");
     self.location.reload();
@@ -53,4 +74,5 @@ export class NavmenuComponent {
       this.Authenticated = 1;
     }
   }
+
 }
