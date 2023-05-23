@@ -141,3 +141,6 @@ a {
 .btn.btn-outline-success.my-2.my-sm-0:focus {
     box-shadow: none;
 }
+#formulario{
+    margin-top: 30px; 
+}

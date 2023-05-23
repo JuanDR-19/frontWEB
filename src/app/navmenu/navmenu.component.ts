@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToolService } from "../tool.service";
+import { Router, NavigationEnd } from '@angular/router';
 import { CookieService } from "ngx-cookie-service";
 
 @Component({
@@ -10,17 +11,14 @@ import { CookieService } from "ngx-cookie-service";
 
 export class NavmenuComponent {
 
-  constructor(private toolservice: ToolService, private cookies: CookieService) {}
+  constructor(private toolservice: ToolService, private cookies: CookieService, private router: Router) {}
 
   word = "";
   searchType = "marca";
   Authenticated = 0;
+  currentRoute="";
 
   ngOnInit() {
-    this.checkAuthentication();
-  }
-
-  ngOnChanges() {
     this.checkAuthentication();
   }
 
@@ -58,5 +56,19 @@ export class NavmenuComponent {
     if (this.cookies.get('token') !== '') {
       this.Authenticated = 1;
     }
+  }
+
+  getCurrentRoute(): Promise<string> {
+    return new Promise((resolve) => {
+      this.router.events.subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          resolve(event.url);
+        }
+      });
+    });
+  }
+
+  navigateTo(route: string) {
+    this.router.navigateByUrl(route);
   }
 }

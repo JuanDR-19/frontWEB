@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { UsersControlComponent } from './users-control.component';
+import { NavmenuComponent } from '../navmenu/navmenu.component';
+import { PaginationButtonsComponent } from '../pagination-buttons/pagination-buttons.component';
+import { NgControl } from '@angular/forms';
 
 describe('UsersControlComponent', () => {
   let component: UsersControlComponent;
@@ -8,7 +11,9 @@ describe('UsersControlComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsersControlComponent ]
+      declarations: [ UsersControlComponent , NavmenuComponent, PaginationButtonsComponent],
+      imports: [ HttpClientModule],
+      providers: [{ provide: NgControl, useClass: {} }]
     })
     .compileComponents();
 

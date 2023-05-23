@@ -8,11 +8,11 @@
           </div>
           <div class="card-body">
             <div class="image_container" >
-                <img [src]=tool.img alt={{tool.name}}>
+                <img id="tool-image" [src]=tool.img alt={{tool.name}}>
             </div>
             <div id="texto">
-              <p class="card-text">{{tool.description}}</p>
-              <p class="card-text">{{tool.price|currency}}</p>
+              <p class="card-text description" id="tool-description">{{tool.description}}</p>
+              <p class="card-text price" id="tool-price">{{tool.price|currency}}</p>
             </div>
             <a href="#" class="btn btn-primary">Ampliar información</a>
           </div>
