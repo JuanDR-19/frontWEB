@@ -48,8 +48,9 @@ export class UserService {
    @description Método encargado de eliminar usuarios con el ID especificado
    @method deleteUser
    */
-   deleteUser(identifier: number): void {
-    this.http.delete(`http://localhost:8083/deleteUser/${identifier}`);
+   deleteUser(identifier: number): Observable<any> {
+    const url = `http://localhost:8083/deleteUser/${identifier}`;
+    return this.http.delete(url);
   }
 }
 export { User };
