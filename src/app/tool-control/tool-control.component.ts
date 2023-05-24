@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ToolService, Tool } from '../tool.service';
+import {CookieService} from "ngx-cookie-service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'tool-control',
@@ -13,7 +15,7 @@ import { ToolService, Tool } from '../tool.service';
  * @param {ToolService} toolservice -servicio de angular para realizar peticiones HTTP al microServicio toolsWeb
  */
 export class ToolControlComponent {
-  constructor(private toolservice: ToolService) {}
+  constructor(private toolservice: ToolService,private cookies:CookieService,private router:Router) {}
   /**
    * lista de tools a mostrar en la pagina
    * @type {Tool[]}
@@ -46,5 +48,10 @@ export class ToolControlComponent {
     this.toolservice.deleteTool(id).subscribe(() => {
       location.reload();
     });
+  }
+
+  editar(name:string):void{
+     this.cookies.set('name',name);
+     this.router.navigate(['/editT'])
   }
 }

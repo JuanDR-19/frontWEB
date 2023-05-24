@@ -6,7 +6,7 @@
                 <h5>{{us.user_id}}.{{us.name_user}}</h5>
                 <p>Nombre: {{us.username}} {{us.last_name_user}}</p>
                 <p>Fecha de nacimiento: {{us.birthdate_user}}</p>
-                <button href="#" class="btn btn-primary">Editar <img src="./assets/Lapiz.png" style="width: 20px; height: 20px;"></button>
+                <button (click)="editU(us.user_id)" class="btn btn-primary">Editar <img src="./assets/Lapiz.png" style="width: 20px; height: 20px;"></button>
                 <button (click)="borrar(us.user_id)" class="btn btn-primary">Eliminar <img src="./assets/cross.png" style="width: 20px; height: 20px;"></button>
             </li>
         </ul>

@@ -80,5 +80,10 @@ export class ToolService {
     const url = `http://localhost:8081/deleteTool/${id}`;
     return this.http.delete(url);
   }
+
+  updateTool(tool: Tool, id: number): Observable<any> {
+    const url = `http://localhost:8081/updatetool/${id}`;
+    return this.http.put(url, tool);
+  }
 }
 export { Tool };

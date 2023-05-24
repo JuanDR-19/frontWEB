@@ -54,5 +54,13 @@ export class UserService {
     const headers =new HttpHeaders().set('Authorization',token);
     return this.http.delete(url,{headers});
   }
+
+  updateUser(id: number, u: { password: string; name_user: string; user_id: number; last_name_user: string; username: string; birthdate_user: string; city_id: number }): Observable<any>{
+    const url = `/updateUser/${id}`;
+    const token=this.cookies.get('token')
+    const headers =new HttpHeaders().set('Authorization',token);
+
+    return this.http.put(url,{headers,u});
+  }
 }
 export { User };

@@ -101,7 +101,6 @@ export class RegisterComponent {
           alert("El usuario ya existe, intentelo nuevamente con otro usuario");
           this.failed = true;
         }
-        console.log(this.failed);
       }
     )
     // Reinicia el formulario de inicio de sesión
