@@ -7,6 +7,7 @@ interface Tool {
   img: string;
   description: string;
   price: any;
+  id: number;
 }
 
 @Component({

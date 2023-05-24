@@ -21,12 +21,14 @@ class MockToolService extends ToolService {
       img: 'path/to/image1.jpg',
       description: 'Description 1',
       price: 10.99,
+      id:1
     },
     {
       name: 'Tool 2',
       img: 'path/to/image2.jpg',
       description: 'Description 2',
       price: 20.99,
+      id:2
     },
   ];
 

@@ -26,7 +26,10 @@ describe('RegisterService', () => {
   it('Debe de verificar que se hace una petición POST', () => {
     const newUser: User = {
       name_user: 'John',
-      city_id: 1,
+      city_id:{
+        city_id:1,
+        name:'Bogota'
+      },
       last_name_user: 'Doe',
       username: 'johndoe',
       password: 'password',

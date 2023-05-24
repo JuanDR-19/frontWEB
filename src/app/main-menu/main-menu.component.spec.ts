@@ -29,19 +29,22 @@ describe('MainMenuComponent', () => {
     expect(component).toBeTruthy();
   });
 
+
   it('should get tools from the service', waitForAsync(() => {
     const mockTools: Tool[] = [
       {
         name: 'Tool 1',
         img: 'path/to/image1.jpg',
         description: 'Description 1',
-        price: 10.99
+        price: 10.99,
+        id:1
       },
       {
         name: 'Tool 2',
         img: 'path/to/image2.jpg',
         description: 'Description 2',
-        price: 20.99
+        price: 20.99,
+        id:2
       }
     ];
     spyOn(toolService, 'getTools').and.returnValue(of(mockTools));

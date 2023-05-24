@@ -29,13 +29,15 @@ describe('ToolService', () => {
         name: 'Tool 1',
         img: 'tool1.jpg',
         description: 'Description 1',
-        price: 10.99
+        price: 10.99,
+        id: 1
       },
       {
         name: 'Tool 2',
         img: 'tool2.jpg',
         description: 'Description 2',
-        price: 19.99
+        price: 19.99,
+        id:2
       }
     ];
 
@@ -56,13 +58,15 @@ describe('ToolService', () => {
         name: 'Tool 1',
         img: 'tool1.jpg',
         description: 'Description 1',
-        price: 10.99
+        price: 10.99,
+        id: 1
       },
       {
         name: 'Tool 2',
         img: 'tool2.jpg',
         description: 'Description 2',
-        price: 19.99
+        price: 19.99,
+        id:2
       }
     ];
 
@@ -83,13 +87,15 @@ describe('ToolService', () => {
         name: 'Tool 1',
         img: 'tool1.jpg',
         description: 'Description 1',
-        price: 10.99
+        price: 10.99,
+        id:1
       },
       {
         name: 'Tool 3',
         img: 'tool3.jpg',
         description: 'Description 3',
-        price: 15.99
+        price: 15.99,
+        id:2
       }
     ];
 
