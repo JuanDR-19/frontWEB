@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavmenuComponent } from '../navmenu/navmenu.component';
 import { LoginComponent } from './login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LoginService } from '../login.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,10 +20,9 @@ describe('LoginComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoginComponent, NavmenuComponent],
-      imports: [ReactiveFormsModule, RouterTestingModule, HttpClientModule],
+      imports: [ReactiveFormsModule, RouterTestingModule, HttpClientModule, FormsModule],
       providers: [
-        { provide: LoginService, useClass: MockLoginService },
-        { provide: NgControl, useClass: {} }
+        { provide: LoginService, useClass: MockLoginService }
       ]
     }).compileComponents();
 
@@ -73,10 +72,13 @@ describe('LoginComponent', () => {
   /**
    * @description Debe realizar la acción onsubmit del componente.
    */
-  it('Debe realizar la acción submit cuando se haga click en el botón', () => {
+  it('Debe realizar la acción submit cuando se haga click en el botón', async () => {
     spyOn(component, 'onsubmit');
+    fixture.detectChanges();
+    await fixture.whenStable(); // Esperar a que se completen las tareas asíncronas
     const submitButton = fixture.nativeElement.querySelector('button[type="submit"]');
     submitButton.click();
     expect(component.onsubmit).toHaveBeenCalled();
   });
+  
 });

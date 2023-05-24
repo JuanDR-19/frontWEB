@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../login.service';
 import { RegisterService } from '../register.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'register',

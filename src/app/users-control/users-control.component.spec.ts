@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsersControlComponent } from './users-control.component';
 import { NavmenuComponent } from '../navmenu/navmenu.component';
 import { PaginationButtonsComponent } from '../pagination-buttons/pagination-buttons.component';
-import { NgControl } from '@angular/forms';
+import { FormsModule, NgControl, ReactiveFormsModule } from '@angular/forms';
 
 describe('UsersControlComponent', () => {
   let component: UsersControlComponent;
@@ -12,8 +12,7 @@ describe('UsersControlComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ UsersControlComponent , NavmenuComponent, PaginationButtonsComponent],
-      imports: [ HttpClientModule],
-      providers: [{ provide: NgControl, useClass: {} }]
+      imports: [ HttpClientModule, FormsModule, ReactiveFormsModule]
     })
     .compileComponents();
 

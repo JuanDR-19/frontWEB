@@ -54,3 +54,4 @@ export class MainMenuComponent {
     );
   }
 }
+export {Tool}
