@@ -3,15 +3,15 @@
     <h4>Register</h4>
 </div>
 <div id="form_reg">
-    <form id="formulario-reg" [formGroup]="checkOutForm" (ngSubmit)="onsubmit()">
-                <label for="inputText" >Usuario</label>
+    <form id="formulario-reg" [formGroup]="RegForm" (ngSubmit)="onsubmit()">
+                <label for="inputTextR" >Usuario</label>
                 <input
                     type="text"
                     class="form-control"
-                    id="inputText"
+                    id="inputTextR"
                     placeholder="Enter UserName"
                     required="required"
-                    formControlName="login"
+                    formControlName="username"
                 />
                 <label for="inputPassword" >Contraseña</label>
                 <input
@@ -22,33 +22,33 @@
                     required="required"
                     formControlName="password"
                 />
-                <label for="inputPassword" >Nombre</label>
+                <label for="inputTextRP" >Nombre</label>
                 <input
                     type="text"
                     class="form-control"
-                    id="inputText"
+                    id="inputTextRP"
                     placeholder="name"
                     required="required"
                     formControlName="name"
                 />
                 <div>
-                <label for="inputPassword" >Apellido</label>
+                <label for="inputTextA" >Apellido</label>
                 <input
                     type="text"
                     class="form-control"
-                    id="inputtext"
+                    id="inputTextA"
                     placeholder="last name"
                     required="required"
                     formControlName="lastname"
                 />
-                <input 
+                <input
                     type="date" id="birthdate" name="birthdate"
                     value="2002-07-22"
                     min="1950-01-01" max="2022-12-31"
                     required="required"
                     formControlName="birthdate"
                 />
-            <button type="submit" >Registrar</button>
+                  <button type="submit" >Registrar</button>
         </div>
     </form>
 </div>

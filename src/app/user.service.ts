@@ -50,7 +50,9 @@ export class UserService {
    */
    deleteUser(identifier: number): Observable<any> {
     const url = `http://localhost:8083/deleteUser/${identifier}`;
-    return this.http.delete(url);
+    const token=this.cookies.get('token')
+    const headers =new HttpHeaders().set('Authorization',token);
+    return this.http.delete(url,{headers});
   }
 }
 export { User };

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder,FormGroup } from "@angular/forms";
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../login.service';
 import { RegisterService } from '../register.service';
 import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'register',
@@ -41,17 +42,19 @@ export class RegisterComponent {
    * @description formulario de registro construido con FormBuilder
    * @type {FormBuilder}
    */
-  checkOutForm = this.formbuilder.group({
-    login: '',
+  RegForm = this.formbuilder.group({
+    username: '',
     password: '',
     name: '',
     lastname: '',
     birthdate: ''
   });
-  
+
   authenticated = 0;
 
-  constructor(private formbuilder: FormBuilder, private router: Router , private registerService: RegisterService,private cookies:CookieService, private loginService: LoginService) {}
+  constructor(private formbuilder: FormBuilder, private router: Router , private registerService: RegisterService,private loginservice: LoginService,private cookies:CookieService) {}
+
+
   onsubmit(): void {
     // Obtiene los valores del formulario de inicio de sesión
     let userParam: string;
@@ -59,25 +62,49 @@ export class RegisterComponent {
     let nameParam: string;
     let lastnameParam: string;
     let birthdateParam: string;
+    let cityParam = {
+      city_id: 1,
+      name: 'cali'
+    };
 
-    userParam= ''+ this.checkOutForm.value.login;
-    passParam=''+this.checkOutForm.value.password;
-    nameParam=''+this.checkOutForm.value.name;
-    lastnameParam=''+this.checkOutForm.value.lastname;
-    birthdateParam=''+this.checkOutForm.value.birthdate;
-
+    userParam= ''+ this.RegForm.value.username;
+    passParam=''+this.RegForm.value.password;
+    nameParam=''+this.RegForm.value.name;
+    lastnameParam=''+this.RegForm.value.lastname;
+    birthdateParam=''+this.RegForm.value.birthdate;
 
     // Envía una solicitud de inicio de sesión al servidor
-    this.registerService.NewUser(nameParam,1,lastnameParam,userParam,passParam,"",birthdateParam).subscribe(
+    this.registerService.NewUser(nameParam,cityParam,lastnameParam,userParam,passParam,"",birthdateParam).subscribe(
       (data) :void => {
-          this.loginService.setToken(data.token);
-          this.loggedIn = true;
+        if (data==true){
+
+          this.loginservice.login(userParam, passParam).subscribe(
+            (data) :void => {
+              // Si el inicio de sesión es exitoso, guarda el token devuelto por el servidor
+              // y establece el estado de inicio de sesión en verdadero
+              if (data.token == "error"){
+                alert("Usuario o contraseña incorrecta");
+                this.failed = true;
+              } else {
+                this.loginservice.setToken(data.token);
+                this.loggedIn = true;
+                this.userName = userParam;
+                this.cookies.set('user',this.userName);
+                self.location.reload();
+              }
+            }
+          )
           this.userName = userParam;
           this.cookies.set('user',this.userName);
-          self.location.reload();
+          this.router.navigate(['/'])
+        }else{
+          alert("El usuario ya existe, intentelo nuevamente con otro usuario");
+          this.failed = true;
+        }
+        console.log(this.failed);
       }
     )
     // Reinicia el formulario de inicio de sesión
-    this.checkOutForm.reset();
+    this.RegForm.reset();
   }
 }

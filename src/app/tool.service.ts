@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 
 
@@ -8,6 +8,7 @@ interface Tool {
   img: string;
   description: string;
   price: any;
+  id:number;
 }
 
 @Injectable({
@@ -73,6 +74,11 @@ export class ToolService {
    */
   searchName(brand_name: string): Observable<Tool[]> {
     return this.http.get<Tool[]>(`http://localhost:8082/get_tool_name/${brand_name}`);
+  }
+
+  deleteTool(id:number):Observable<any>{
+    const url = `http://localhost:8081/deleteTool/${id}`;
+    return this.http.delete(url);
   }
 }
 export { Tool };
