@@ -55,8 +55,8 @@ export class EditToolComponent {
     this.tool.price=priceParam;
 
     this.toolService.updateTool(this.tool, this.tool.id).subscribe(() => {
-      self.location.reload();
     });
+    this.router.navigate(['/']);
   }
 
 }
