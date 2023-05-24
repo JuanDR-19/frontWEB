@@ -1,0 +1,22 @@
+<div>
+    <h2>Edit Tool</h2>
+    <form>
+      <div>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" [(ngModel)]="tool.name">
+      </div>
+      <div>
+        <label for="img">Username:</label>
+        <input type="text" id="img" [(ngModel)]="user.username">
+      </div>
+      <div>
+        <label for="description">Apellido</label>
+        <textarea id="description" [(ngModel)]="user.lastname"></textarea>
+      </div>
+      <div>
+        <label for="price">id ciudad</label>
+        <input type="number" id="price" [(ngModel)]="user.city_id">
+      </div>
+      <button (click)="updateUser()">Save</button>
+    </form>
+  </div>

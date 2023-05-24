@@ -12,6 +12,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsersControlComponent } from './users-control/users-control.component';
 import { ToolControlComponent } from './tool-control/tool-control.component';
 import { RegisterComponent } from './register/register.component';
+import { EditToolComponent } from './edit-tool/edit-tool.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { RegisterComponent } from './register/register.component';
     PaginationButtonsComponent,
     UsersControlComponent,
     ToolControlComponent,
-    RegisterComponent
+    RegisterComponent,
+    EditToolComponent,
+    EditUserComponent
   ],
     imports: [
         BrowserModule,
