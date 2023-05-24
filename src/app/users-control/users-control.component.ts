@@ -43,5 +43,11 @@ export class UsersControlComponent {
       }
     );
   }
+
+  borrar(id: number): void {
+    this.userservice.deleteUser(id).subscribe(() => {
+      location.reload();
+    });
+  }
 }
 

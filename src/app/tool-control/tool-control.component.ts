@@ -32,7 +32,6 @@ export class ToolControlComponent {
     this.toolservice.getTools().subscribe(
       (data: Tool[]) => {
         this.tool = data;
-        console.log(data);
       }
     )
 
@@ -41,5 +40,11 @@ export class ToolControlComponent {
         this.tool = data;
       }
     );
+  }
+
+  borrar(id: number): void {
+    this.toolservice.deleteTool(id).subscribe(() => {
+      location.reload();
+    });
   }
 }

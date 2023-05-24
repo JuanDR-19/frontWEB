@@ -3,11 +3,11 @@
     <div class="row">
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let too of tool">
-                <h5>{{too.name}}</h5>
+                <h5>{{too.id}} {{too.name}}</h5>
                 <p>{{too.description}}</p>
                 <p>{{ too.price|currency }}</p>
                 <a href="#" class="btn btn-primary">Editar <img src="./assets/Lapiz.png" style="width: 20px; height: 20px;"></a>
-                <a href="#" class="btn btn-primary">Eliminar <img src="./assets/cross.png" style="width: 20px; height: 20px;"></a>
+                <button (click)="borrar(too.id)" class="btn btn-primary">Eliminar <img src="./assets/cross.png" style="width: 20px; height: 20px;"></button>
             </li>
         </ul>
     </div>

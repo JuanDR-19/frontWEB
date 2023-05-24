@@ -5,7 +5,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 interface User {
   name_user: string;
-  city_id : number;
+  city_id: {
+    city_id: number;
+    name: string;
+  };
   last_name_user: string;
   username: string;
   password: string;
@@ -35,7 +38,7 @@ export class RegisterService {
    */
    NewUser(
     name_user: string,
-    city_id: number,
+    city_id: { city_id: number, name: string },
     last_name_user: string,
     username: string,
     password: string,
@@ -51,8 +54,8 @@ export class RegisterService {
       token,
       birthdate_user
     };
-    return this.http.post<any>('http://localhost:8083/NewUser', user);
+    return this.http.post<boolean>('http://localhost:8083/NewUser', user);
   }
-  
+
 }
 export { User };
