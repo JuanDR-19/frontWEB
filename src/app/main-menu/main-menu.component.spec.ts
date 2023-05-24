@@ -106,7 +106,7 @@ describe('MainMenuComponent', () => {
   it('Deberia de mostrar las descripciones de las herramientas creadas en el mock', waitForAsync(() => {
     fixture.detectChanges();
     fixture.whenStable().then(() => {
-      const toolDescriptions = fixture.debugElement.queryAll(By.css('.card-text.description')).map(el => el.nativeElement.innerText.trim());
+      const toolDescriptions = fixture.debugElement.queryAll(By.css('[id="tool-description"]')).map(el => el.nativeElement.innerText.trim());
       const expectedDescriptions = MockToolService.mockTools.map(tool => tool.description);
       expect(toolDescriptions).toEqual(expectedDescriptions);
     });
@@ -119,7 +119,7 @@ describe('MainMenuComponent', () => {
   it('Deberia de mostrar los precios de las herramientas creadas en el mock', waitForAsync(() => {
     fixture.detectChanges();
     fixture.whenStable().then(() => {
-      const toolPrices = fixture.debugElement.queryAll(By.css('.card-text.price')).map(el => el.nativeElement.innerText.trim());
+      const toolPrices = fixture.debugElement.queryAll(By.css('[id="tool-price"]')).map(el => el.nativeElement.innerText.trim());
       const expectedPrices = MockToolService.mockTools.map(tool => tool.price);
       expect(toolPrices).toEqual(expectedPrices);
     });
@@ -132,7 +132,7 @@ describe('MainMenuComponent', () => {
    */
   it('Deberia de mostrar las imagenes de las herramientas creadas en el mock', () => {
     fixture.detectChanges();
-    const toolImages = fixture.debugElement.queryAll(By.css('#tool-image img')).map(el => el.nativeElement.getAttribute('src'));
+    const toolImages = fixture.debugElement.queryAll(By.css('[id="tool-image"]')).map(el => el.nativeElement.getAttribute('src'));
     const expectedImages = MockToolService.mockTools.map(tool => tool.img);
     expect(toolImages).toEqual(expectedImages);
   });

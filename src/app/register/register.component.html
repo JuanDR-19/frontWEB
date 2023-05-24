@@ -1,0 +1,55 @@
+<navmenu></navmenu>
+<div class="title">
+    <h4>Register</h4>
+</div>
+<div id="form_reg">
+    <form id="formulario-reg" [formGroup]="checkOutForm" (ngSubmit)="onsubmit()">
+                <label for="inputText" >Usuario</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="inputText"
+                    placeholder="Enter UserName"
+                    required="required"
+                    formControlName="login"
+                />
+                <label for="inputPassword" >Contraseña</label>
+                <input
+                    type="password"
+                    class="form-control"
+                    id="inputPassword"
+                    placeholder="Password"
+                    required="required"
+                    formControlName="password"
+                />
+                <label for="inputPassword" >Nombre</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="inputText"
+                    placeholder="name"
+                    required="required"
+                    formControlName="name"
+                />
+                <div>
+                <label for="inputPassword" >Apellido</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="inputtext"
+                    placeholder="last name"
+                    required="required"
+                    formControlName="last-name"
+                />
+                <input 
+                    type="date" id="birthdate" name="birthdate"
+                    value="2002-07-22"
+                    min="1950-01-01" max="2022-12-31"
+                    required="required"
+                    formControlName="birthdate"
+                />
+            <button type="submit" >Registrar</button>
+        </div>
+    </form>
+</div>
+

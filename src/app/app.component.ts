@@ -30,8 +30,9 @@ export class AppComponent implements OnInit {
    * metodo para cambiar de componente y mostrar el componente para iniciar sesion
    */
   logging() {
-
     // Navega a la ruta "/login" utilizando el método "navigate()" del servicio Router
     this.router.navigate(['/login'])
   }
+
+  
 }

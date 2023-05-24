@@ -3,20 +3,24 @@ import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from '../app-routing.module';
 import { NavmenuComponent } from './navmenu.component';
+import { Router } from '@angular/router';
 
 describe('NavmenuComponent', () => {
   let component: NavmenuComponent;
   let fixture: ComponentFixture<NavmenuComponent>;
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NavmenuComponent],
-      imports: [RouterTestingModule, FormsModule, HttpClientModule]
+      imports: [RouterTestingModule, FormsModule, HttpClientModule, AppRoutingModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(NavmenuComponent);
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -26,27 +30,25 @@ describe('NavmenuComponent', () => {
 
   /**
    * @description Prueba de enlace de botones de la barra de navegación de la aplicación
-   * prueba para el metodo de inicio
+   * prueba para el método de inicio
    */
-  it('debe de navegar correctamente en los botones de enlace', () => {
+  it('debe de navegar correctamente en los botones de enlace (inicio)', () => {
+    const navigateSpy = spyOn(router, 'navigateByUrl');
     component.navigateTo('/');
-    component.getCurrentRoute().then((route) => {
-      expect(route).toEqual('/');
-    });
+    expect(navigateSpy).toHaveBeenCalledWith('/');
   });
 
   /**
    * @description Prueba de enlace de botones de la barra de navegación de la aplicación
-   * prueba para el metodo de login
+   * prueba para el método de login
    */
-  it('debe de navegar correctamente en los botones de enlace', () => {
+  it('debe de navegar correctamente en los botones de enlace (login)', async () => {
+    const navigateSpy = spyOn(router, 'navigateByUrl');
     component.navigateTo('login');
-    component.getCurrentRoute().then((route) => {
-      expect(route).toEqual('login');
-    });
+    expect(navigateSpy).toHaveBeenCalledWith('login');
   });
 
-  it('debe de cambiar la palabra en el campo de busqueda y tomarla en un valor de variable que la refleje', () => {
+  it('debe de cambiar la palabra en el campo de búsqueda y tomarla en un valor de variable que la refleje', () => {
     const searchInput = fixture.debugElement.query(By.css('input[name="word"]')).nativeElement;
     searchInput.value = 'tool';
     searchInput.dispatchEvent(new Event('input'));

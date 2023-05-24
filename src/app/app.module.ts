@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsersControlComponent } from './users-control/users-control.component';
 import { ToolControlComponent } from './tool-control/tool-control.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ToolControlComponent } from './tool-control/tool-control.component';
     MainMenuComponent,
     PaginationButtonsComponent,
     UsersControlComponent,
-    ToolControlComponent
+    ToolControlComponent,
+    RegisterComponent
   ],
     imports: [
         BrowserModule,
