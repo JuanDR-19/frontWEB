@@ -23,9 +23,12 @@ export class NavmenuComponent {
   }
 
   search() {
+
     if (this.searchType === "brand") {
       this.SearchBrand();
-    } else if (this.searchType === "name") {
+
+    }
+    if (this.searchType === "name") {
       this.SearchName();
     }
   }

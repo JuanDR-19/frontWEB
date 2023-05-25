@@ -22,10 +22,10 @@
         <div class="span2">
           <div class="col-md-2 pt-3">
             <div class="form-group ">
-               <select id="inputState " class="form-control" id="brand_selec">
-                 <option selected [(ngModel)]="searchType" name="name">Nombre</option>
-                 <option [(ngModel)]="searchType" name="brand">Marca</option>
-               </select>
+              <select class="form-control" id="brand_selec" [(ngModel)]="searchType" name="searchType">
+                <option value="name">Nombre</option>
+                <option value="brand">Marca</option>
+              </select>
             </div>
          </div>
         </div>
